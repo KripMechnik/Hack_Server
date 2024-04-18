@@ -1,7 +1,7 @@
 package com.samsung.spring.controller;
 
-import com.samsung.spring.domain.User;
-import com.samsung.spring.service.UserService;
+import com.samsung.spring.domain.Landmark;
+import com.samsung.spring.service.LandmarkService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,30 +11,30 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserController {
 
-    private final UserService userService;
+    private final LandmarkService landmarkService;
 
-    @PostMapping("/user")
-    public User add(@RequestBody User user) {
-        return userService.add(user);
+    @PostMapping("/landmark")
+    public Landmark add(@RequestBody Landmark user) {
+        return landmarkService.add(user);
     }
 
-    @GetMapping("/user")
-    public List<User> getAll() {
-        return userService.getAll();
+    @GetMapping("/landmark")
+    public List<Landmark> getAll() {
+        return landmarkService.getAll();
     }
 
-    @GetMapping("/user/{id}")
-    public User getById(@PathVariable long id) {
-        return userService.getById(id);
+    @GetMapping("/landmark/{id}")
+    public Landmark getById(@PathVariable long id) {
+        return landmarkService.getById(id);
     }
 
     @PutMapping("/user/{id}")
-    public User update(@PathVariable long id, @RequestBody User user) {
-        return userService.update(id, user);
+    public Landmark update(@PathVariable long id, @RequestBody Landmark user) {
+        return landmarkService.update(id, user);
     }
 
     @DeleteMapping("/user/{id}")
     public void deleteById(@PathVariable long id) {
-        userService.deleteById(id);
+        landmarkService.deleteById(id);
     }
 }

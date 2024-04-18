@@ -48,13 +48,6 @@
             <artifactId>lombok</artifactId>
         </dependency>
 
-        <!-- H2 — открытая кроссплатформенная СУБД, полностью написанная на языке Java -->
-        <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-        </dependency>
-
         <!-- Spring Data — дополнительный удобный механизм для взаимодействия с сущностями базы данных,
              организации их в репозитории, извлечение данных, изменение -->
         <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa -->
@@ -69,6 +62,11 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-boot-starter</artifactId>
             <version>3.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
         </dependency>
 
         <!--

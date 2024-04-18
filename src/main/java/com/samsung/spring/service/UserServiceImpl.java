@@ -1,7 +1,7 @@
 package com.samsung.spring.service;
 
-import com.samsung.spring.dao.UserDao;
-import com.samsung.spring.domain.User;
+import com.samsung.spring.dao.LandmarkDao;
+import com.samsung.spring.domain.Landmark;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -10,41 +10,40 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements LandmarkService {
 
-    private final UserDao userDao;
+    private final LandmarkDao landmarkDao;
 
     @Override
-    public User add(User user) {
-        return userDao.save(user);
+    public Landmark add(Landmark user) {
+        return landmarkDao.save(user);
     }
 
     @Override
-    public List<User> getAll() {
-        return userDao.findAll();
+    public List<Landmark> getAll() {
+        return landmarkDao.findAll();
     }
 
     @Override
-    public User getById(long id) {
-        return userDao.findById(id).orElse(null);
+    public Landmark getById(long id) {
+        return landmarkDao.findById(id).orElse(null);
     }
 
     @Override
-    public User update(long id, User user) {
-        Optional<User> userOptional = userDao.findById(id);
+    public Landmark update(long id, Landmark user) {
+        Optional<Landmark> userOptional = landmarkDao.findById(id);
         if (!userOptional.isPresent()) throw new RuntimeException("User with ID " + id + " not found");
 
-        User updateUser = userOptional.get();
-        updateUser.setName(user.getName());
-        updateUser.setEmail(user.getEmail());
-        updateUser.setPhone(user.getPhone());
-        updateUser.setPhotoUrl(user.getPhotoUrl());
+        Landmark updateUser = userOptional.get();
+        updateUser.setTitle(user.getTitle());
+        updateUser.setDescription(user.getDescription());
+        updateUser.setImage(user.getImage());
 
-        return userDao.save(user);
+        return landmarkDao.save(user);
     }
 
     @Override
     public void deleteById(long id) {
-        userDao.deleteById(id);
+        landmarkDao.deleteById(id);
     }
 }
