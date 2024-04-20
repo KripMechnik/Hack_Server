@@ -13,9 +13,11 @@ public class UserController {
 
     private final LandmarkService landmarkService;
 
+
     @PostMapping("/landmark")
-    public Landmark add(@RequestBody Landmark user) {
-        return landmarkService.add(user);
+    public Integer add(@RequestBody Landmark landmark) {
+        landmarkService.add(landmark);
+        return 1;
     }
 
     @GetMapping("/landmark")
@@ -24,17 +26,17 @@ public class UserController {
     }
 
     @GetMapping("/landmark/{id}")
-    public Landmark getById(@PathVariable long id) {
+    public Landmark getById(@PathVariable Integer id) {
         return landmarkService.getById(id);
     }
 
     @PutMapping("/user/{id}")
-    public Landmark update(@PathVariable long id, @RequestBody Landmark user) {
+    public Landmark update(@PathVariable Integer id, @RequestBody Landmark user) {
         return landmarkService.update(id, user);
     }
 
     @DeleteMapping("/user/{id}")
-    public void deleteById(@PathVariable long id) {
+    public void deleteById(@PathVariable Integer id) {
         landmarkService.deleteById(id);
     }
 }

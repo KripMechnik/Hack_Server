@@ -1,31 +1,30 @@
-# Конфигурационный файл
 spring:
 
-  # Подключение к H2 бд через jdbc
   datasource:
-    url: jdbc:postgresql://localhost:5432/Hackathon
+    url: jdbc:postgresql://localhost:5432/landmark
     username: postgres
     password: 25042004
 
-  # Включение консоли
   h2:
     console:
-      #enabled: false
       enabled: true
 
   jpa:
-
-    #Автогенерация схемы hibernate
-    #generate-ddl: false
     generate-ddl: false
 
     hibernate:
-      #ddl-auto: none
       ddl-auto: update
 
 
-    # Показываем запросы
     show-sql: true
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+
+google:
+  secret:
+    key:
+      path: D:/JavaProj/Hack_Server/key/credentials.json
+  oauth:
+    callback:
+      uri: http://localhost.nip.io:8080/oauth

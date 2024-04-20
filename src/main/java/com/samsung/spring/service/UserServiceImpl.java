@@ -25,12 +25,12 @@ public class UserServiceImpl implements LandmarkService {
     }
 
     @Override
-    public Landmark getById(long id) {
+    public Landmark getById(Integer id) {
         return landmarkDao.findById(id).orElse(null);
     }
 
     @Override
-    public Landmark update(long id, Landmark user) {
+    public Landmark update(Integer id, Landmark user) {
         Optional<Landmark> userOptional = landmarkDao.findById(id);
         if (!userOptional.isPresent()) throw new RuntimeException("User with ID " + id + " not found");
 
@@ -38,12 +38,13 @@ public class UserServiceImpl implements LandmarkService {
         updateUser.setTitle(user.getTitle());
         updateUser.setDescription(user.getDescription());
         updateUser.setImage(user.getImage());
+        updateUser.setCoords(user.getCoords());
 
         return landmarkDao.save(user);
     }
 
     @Override
-    public void deleteById(long id) {
+    public void deleteById(Integer id) {
         landmarkDao.deleteById(id);
     }
 }

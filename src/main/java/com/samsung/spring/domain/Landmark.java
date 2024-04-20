@@ -18,7 +18,7 @@ public class Landmark {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @Column(name = "title")
     private String title;
@@ -28,5 +28,8 @@ public class Landmark {
 
     @Column(name = "image")
     private String image;
+
+    @Column(name = "coords")
+    private String coords;
 }
 

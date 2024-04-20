@@ -9,9 +9,9 @@ public interface LandmarkService {
 
     List<Landmark> getAll();
 
-    Landmark getById(long id);
+    Landmark getById(Integer id);
 
-    Landmark update(long id, Landmark user);
+    Landmark update(Integer id, Landmark user);
 
-    void deleteById(long id);
+    void deleteById(Integer id);
 }
